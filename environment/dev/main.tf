@@ -70,6 +70,27 @@ module "VPC" {
   enable_dns_support = var.enable_dns_support
   name = var.name
 }
+# *************************************************************************************************
+# Security Group template used here ***************************************************************
+module "Security_Group" {
+  source = "../../modules/security_group"
+  # security group allow tls
+  security_group_name = var.security_group_name
+  security_group_tags = var.security_group_tags
+  # ingress tls for the ipv4 ports
+  tls_ipv4_from_port = var.tls_ipv4_from_port
+  tls_ipv4_ip_protocol = var.tls_ipv4_ip_protocol
+  tls_ipv4_to_port = var.tls_ipv4_to_port
+  tls_ipv6_from_port = var.tls_ipv6_from_port
+  tls_ipv6_ip_protocol = var.tls_ipv6_ip_protocol
+  tls_ipv6_to_port = var.tls_ipv6_to_port
+
+  traffic_ipv4_cidr_block = var.traffic_ipv4_cidr_block
+  traffic_ipv4_ip_protocol = var.traffic_ipv4_ip_protocol
+  traffic_ipv6_cidr_block = var.traffic_ipv6_cidr_block
+  traffic_ipv6_ip_protocol = var.traffic_ipv6_ip_protocol
+
+}
 
 # *************************************************************************************************
 #                                         FRONTEND TIER
