@@ -218,6 +218,22 @@ module "AutoScaling" {
  
   create_before_destroy = var.create_before_destroy
 }
-
-
+# ************************************************************************************************
+#                                       DATABASE    
+# ************************************************************************************************
+module "database" {
+  source = "../../modules/database"
+  database_cluster_identifier = var.database_cluster_identifier
+  database_cluster_engine = var.database_cluster_engine
+  database_cluster_engine_version = var.database_cluster_engine_version
+  database_cluster_availability_zones = var.database_cluster_availability_zones
+  database_cluster_backup_retention_period = var.database_cluster_backup_retention_period
+  database_cluster_master_password = var.database_cluster_master_password
+  database_cluster_master_username = var.database_cluster_master_username
+  database_cluster_preferred_backup_window = var.database_cluster_preferred_backup_window
+  database_instance_count = var.database_instance_count
+  database_instance_identifier = var.database_instance_identifier
+  database_instance_instance_class = var.database_instance_instance_class
+  database_name = var.database_name
+}
 # *************************************************************************************************
